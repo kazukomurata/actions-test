@@ -23,7 +23,7 @@ jobs:
     - name: Setup git
       run: |
         git config user.name  "build"
-        git config user.email "5987588+github-actions@users.noreply.github.com
+        git config user.email "5987588+github-actions@users.noreply.github.com"
     - name: Commit
       run: git add. & git commit -m 'Add build files'
     - name: Push build
