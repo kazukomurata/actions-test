@@ -24,7 +24,11 @@ jobs:
       run: |
         git config user.name  "build"
         git config user.email "5987588+github-actions@users.noreply.github.com"
+    - name: Create branch
+      run: git checkout -b build-develop
     - name: Commit
-      run: git add. & git commit -m 'Add build files'
+      run: |
+        git add .
+        git commit -m 'Update build files'
     - name: Push build
       run: git push -f origin build-develop
