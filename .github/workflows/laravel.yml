@@ -21,7 +21,7 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Override .gitignore
-      run: .gitignore.build > .gitignore
+      run: cat .gitignore.build > .gitignore
     - name: Commit
       run: git add. & git commit -m 'Add build files'
     - name: Push build
