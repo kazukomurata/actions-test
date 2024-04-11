@@ -14,14 +14,16 @@ jobs:
       with:
         php-version: '8.3'
     - uses: actions/checkout@v3
-    - name: Copy .env
-      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Change branch
       run: git branch build-develop
     - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --no-dev
     - name: Override .gitignore
       run: cat .gitignore.build > .gitignore
+    - name: Setup git
+      run: |
+        git config user.name  "build"
+        git config user.email "5987588+github-actions@users.noreply.github.com
     - name: Commit
       run: git add. & git commit -m 'Add build files'
     - name: Push build
